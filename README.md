@@ -26,15 +26,28 @@ YYYY-MM-DDTHH:MM:SS.ffffff，if microsecond > 0
 YYYY-MM-DDTHH:MM:SS，if microsecond == 0
 
 # Use
-Please run this command:
+1. Please run this command:
+
 `
 npm install quick-helper
 `
+
 to install quick-helper module.
 
-Please run this command:
+2. Please run this command:
+
+
 `
 npm update quick-helper
 `
 to update quick-helper module.
 
+3. Please run this command:
+
+`
+tsc ./index.ts
+`
+
+to compile code from typescript to javascript.
+
+Then you can run index.js.

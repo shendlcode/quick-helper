@@ -27,3 +27,28 @@ quick-helper 项目。
 YYYY-MM-DDTHH:MM:SS.ffffff，如果毫秒不为0。
 
 YYYY-MM-DDTHH:MM:SS，如果毫秒为0。
+
+# 使用方法
+1. 请运行如下命令:
+
+`
+npm install quick-helper
+`
+
+安装quick-helper模块.
+
+2. 请运行如下命令:
+
+
+`
+npm update quick-helper
+`
+更新quick-helper模块.
+
+3. 请运行如下命令:
+
+`
+tsc ./index.ts
+`
+
+把typescript代码编译成javascript代码。会生成index.js文件。
