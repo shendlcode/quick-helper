@@ -24,3 +24,17 @@ convert Date to Iso 8601 Format String by datetime.
 YYYY-MM-DDTHH:MM:SS.ffffff，if microsecond > 0
 
 YYYY-MM-DDTHH:MM:SS，if microsecond == 0
+
+# Use
+Please run this command:
+`
+npm install quick-helper
+`
+to install quick-helper module.
+
+Please run this command:
+`
+npm update quick-helper
+`
+to update quick-helper module.
+

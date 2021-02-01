@@ -43,7 +43,7 @@ export function datetimeToIsoformat(date:Date){
 }
 
 //test
-// let myStr=numberToFixNumber(123,6)
+// let myStr=numberToFixNumber(123456,6)
 // console.log(myStr)
 // let myDate=new Date()
 // let myDateStr=dateToIsoformat(myDate)
