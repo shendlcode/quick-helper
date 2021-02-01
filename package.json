@@ -1,13 +1,17 @@
 {
   "name": "quick-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "There are some useful functions for javascript development.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "shendl",
-  "license": "ISC",
+  "license": "GPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shendl1978/quick-helper"
+  },
   "devDependencies": {
     "@types/node": "^14.14.22",
     "browserify": "^17.0.0",
