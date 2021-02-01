@@ -19,9 +19,7 @@ ISO 8601 Format: YYYY-MM-DD
 
 ### export function datetimeToIsoformat(date:Date){
 
-convert Date to Iso Format String by datetime. 
-
-ISO 8601 Format: YYYY-MM-DDT
+convert Date to Iso 8601 Format String by datetime. 
 
 YYYY-MM-DDTHH:MM:SS.ffffff，if microsecond > 0
 
