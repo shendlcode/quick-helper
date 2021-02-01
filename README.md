@@ -3,7 +3,7 @@ quick-helper project.
 
 This is a npm module.There are some useful functions for javascript development.I write it by typescript.
 
-Read this in other languages: English | 简体中文[README_zh-CN.md]
+Read this in other languages: English | [简体中文](README_zh-CN.md)
 
 # API
 
