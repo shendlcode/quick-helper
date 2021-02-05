@@ -25,6 +25,19 @@ YYYY-MM-DDTHH:MM:SS.ffffff，if microsecond > 0
 
 YYYY-MM-DDTHH:MM:SS，if microsecond == 0
 
+
+### export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+
+jsonLog is a log function that write out json format log.So you can parse log very easy.
+
+Call example:
+
+`
+let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':22}})
+`
+
 # Use
 1. Please run this command:
 

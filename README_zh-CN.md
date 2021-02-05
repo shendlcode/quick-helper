@@ -28,6 +28,40 @@ YYYY-MM-DDTHH:MM:SS.ffffff，如果毫秒不为0。
 
 YYYY-MM-DDTHH:MM:SS，如果毫秒为0。
 
+
+### export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+
+jsonLog是一个日志函数。输出为json格式，目的是便于对日志数据进行分析和处理。
+
+logApp应该填写本应用的名字。
+
+logName应该填写该日志的名字。
+
+logVersion应该填写该日志的版本号。
+
+
+
+logMsg是真正的日志内容。随便什么javascript对象都可以。
+
+你可以使用logApp,logName,logMsg,logVersion这3个信息，确定日志的格式，编写代码解析logMsg。
+
+日志有ISO格式的时间，也有等级。
+
+如果在浏览器环境下，还会有
+
+browserLanguage：浏览器语言
+referrer: 前一个页面地址,
+userAgent：浏览器的userAgent信息，可以据此得到浏览器的名字，版本，平台信息等。
+
+调用例子：
+
+`
+let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':22}})
+`
+
+
 # 使用方法
 1. 请运行如下命令:
 
