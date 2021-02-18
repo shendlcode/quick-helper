@@ -1,3 +1,5 @@
+import { isPrimitive } from "util";
+
 export const name='quick-helper'
 
 export function numberToFixNumber(val:number,length:number){
@@ -41,6 +43,8 @@ export function datetimeToIsoformat(date:Date){
     return dateStr
 }
 
+export let logStrs:string[]=[]
+
 //let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':42}})
 export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info'}:{
     logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
@@ -69,11 +73,13 @@ export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info
        "browserLanguage": browserLanguage,
        "referrer": referrer,
         "logMsg":logMsg,
-
+        "ip":""
 
     }
     const logStr=JSON.stringify(logObj)
+    
     console.log(logStr)
+    logStrs.push(logStr)
     return logStr;
 
 }
