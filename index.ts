@@ -105,11 +105,11 @@ export function jsonError({logApp,logName,logMsg,logVersion='1.0.0',logLevel='er
 }
 
 //test
-jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:123})
-jsonDebug({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
-jsonInfo({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
-jsonWarn({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
-jsonError({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+// jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:123})
+// jsonDebug({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+// jsonInfo({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+// jsonWarn({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+// jsonError({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
 // let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':42}})
 // console.log(`1:${myLog}`)
 // //  myLog=fixForJSONstringify(myLog)
