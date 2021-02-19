@@ -43,12 +43,57 @@ export function datetimeToIsoformat(date:Date){
     return dateStr
 }
 
+export let logThreshold='info'
+
+function isShowLog(logLevel:string){
+    let ret=false;
+    if(logLevel!==undefined || logLevel!==null){
+        logLevel=logLevel.toLowerCase()
+    }else{
+        if(logThreshold=="debug"){
+            ret=true;
+        }
+        return ret;
+    }
+    
+    switch(logThreshold){
+        case "debug":
+            ret = true
+            break;
+        case "info":
+            if(logLevel in {"info":true,"warn":true,"error":true}){
+                ret=true;
+            }
+            break;
+        case "warn":
+            if(logLevel in{"warn":true,"error":true}){
+                ret=true;
+            }
+            break;
+        case "error":
+            if(logLevel =="error"){
+                ret=true;
+            }
+            break;
+        default:
+            break;
+
+    }
+    return ret;
+
+}
+
 export let logStrs:string[]=[]
 
 //let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':42}})
 export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info'}:{
     logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
-}){
+}){ 
+    logLevel=logLevel.toLowerCase()
+    if(isShowLog(logLevel)==false){
+        return '';
+    }
+
     let userAgent=''
     let  browserLanguage=''
     let referrer= '' 
@@ -105,6 +150,32 @@ export function jsonError({logApp,logName,logMsg,logVersion='1.0.0',logLevel='er
 }
 
 //test
+// logThreshold='debug'
+// console.log(isShowLog('debug'))
+// console.log(isShowLog('Info'))
+// console.log(isShowLog('warn'))
+// console.log(isShowLog('error'))
+// logThreshold='info'
+// console.log(isShowLog('debug'))
+// console.log(isShowLog('Info'))
+// console.log(isShowLog('warn'))
+// console.log(isShowLog('error'))
+// logThreshold='warn'
+// console.log(isShowLog('debug'))
+// console.log(isShowLog('info'))
+// console.log(isShowLog('WARN'))
+// console.log(isShowLog('ErroR'))
+// logThreshold='error'
+// console.log(isShowLog('debug'))
+// console.log(isShowLog('info'))
+// console.log(isShowLog('warn'))
+// console.log(isShowLog('error'))
+// logThreshold='debug'
+// console.log(isShowLog('debdg'))
+// console.log(isShowLog('infdo'))
+// console.log(isShowLog('wardn'))
+// console.log(isShowLog('errodr'))
+// logThreshold='error'
 // jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:123})
 // jsonDebug({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
 // jsonInfo({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
