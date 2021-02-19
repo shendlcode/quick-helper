@@ -21,7 +21,7 @@ export function numberToFixNumber(val:number,length:number){
 }
 
 export function dateToIsoformat(date:Date){
-    const     dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth(),2)}-${numberToFixNumber(date.getDate(),2)}`
+    const     dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth()+1,2)}-${numberToFixNumber(date.getDate(),2)}`
 
     return dateStr
 }
@@ -34,10 +34,10 @@ export function datetimeToIsoformat(date:Date){
 // YYYY-MM-DDTHH:MM:SS，如果 microsecond 为 0
     let dateStr=``
     if(date.getMilliseconds()>0){
-        dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth(),2)}-${numberToFixNumber(date.getDate(),2)}T${numberToFixNumber(date.getHours(),2)}:${numberToFixNumber(date.getMinutes(),2)}:${numberToFixNumber(date.getSeconds(),2)}.${numberToFixNumber(date.getMilliseconds(),6)}`
+        dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth()+1,2)}-${numberToFixNumber(date.getDate(),2)}T${numberToFixNumber(date.getHours(),2)}:${numberToFixNumber(date.getMinutes(),2)}:${numberToFixNumber(date.getSeconds(),2)}.${numberToFixNumber(date.getMilliseconds(),6)}`
 
     }else{
-        dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth(),2)}-${numberToFixNumber(date.getDate(),2)}T${numberToFixNumber(date.getHours(),2)}:${numberToFixNumber(date.getMinutes(),2)}:${numberToFixNumber(date.getSeconds(),2)}`
+        dateStr=`${date.getFullYear()}-${numberToFixNumber(date.getMonth()+1,2)}-${numberToFixNumber(date.getDate(),2)}T${numberToFixNumber(date.getHours(),2)}:${numberToFixNumber(date.getMinutes(),2)}:${numberToFixNumber(date.getSeconds(),2)}`
 
     }
     return dateStr
@@ -83,10 +83,33 @@ export function jsonLog({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info
     return logStr;
 
 }
+export function jsonInfo({logApp,logName,logMsg,logVersion='1.0.0',logLevel='info'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+    return jsonLog({logApp,logName,logMsg,logVersion,logLevel})
+}
+export function jsonDebug({logApp,logName,logMsg,logVersion='1.0.0',logLevel='debug'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+    return jsonLog({logApp,logName,logMsg,logVersion,logLevel})
+}
+export function jsonWarn({logApp,logName,logMsg,logVersion='1.0.0',logLevel='warn'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+    return jsonLog({logApp,logName,logMsg,logVersion,logLevel})
+}
+export function jsonError({logApp,logName,logMsg,logVersion='1.0.0',logLevel='error'}:{
+    logApp:string,logName:string,logMsg:any,logVersion?:string,logLevel?:string
+}){
+    return jsonLog({logApp,logName,logMsg,logVersion,logLevel})
+}
 
 //test
-// jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:123})
-// jsonLog({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:123})
+jsonDebug({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+jsonInfo({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+jsonWarn({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
+jsonError({logApp:"myApp",logName:"structLog-End",logMsg:'Hello world!'})
 // let myLog=jsonLog({logApp:"myApp",logName:"structLog-start",logMsg:{"name":"shendl",'age':42}})
 // console.log(`1:${myLog}`)
 // //  myLog=fixForJSONstringify(myLog)
